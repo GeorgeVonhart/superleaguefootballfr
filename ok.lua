@@ -84,10 +84,15 @@ local Slider = Section2:Slider({
             end
         end
 
-        if _G.Active == true then
-        Workspace.Characters.Stadium[n].Humanoid.WalkSpeed = Number
+        if _G.Active == true then           
+            while _G.Active == true and task.wait() do
+                Workspace.Characters.Stadium[n].Humanoid.WalkSpeed = Number
+                if Workspace.Characters.Stadium[n]:FindFirstChild(n) == nil then
+                    wait(.1)
+                end
+            end          
         end
-	end
+	end   
 })
 
 
@@ -149,3 +154,4 @@ local Button = Section:Button({
 		Window:TaskBarOnly(false)
 	end
 })
+print'loaded successfully'
